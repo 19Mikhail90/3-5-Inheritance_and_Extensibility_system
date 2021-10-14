@@ -1,22 +1,24 @@
 package ru.netology.domain;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.Collection;
 import java.util.Objects;
-
-@NoArgsConstructor
-@Data
-@AllArgsConstructor
 
 public class Book extends Product {
     private String author;
 
-    public Book(int id, String title, String author) {
-        super(id, title);
+    public Book() {
+        super();
+    }
+
+    public Book(int id, String name, int price, String author) {
+        super(id, name, price);
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -34,4 +36,10 @@ public class Book extends Product {
         return Objects.hash(super.hashCode(), author);
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "author='" + author + '\'' +
+                '}';
+    }
 }

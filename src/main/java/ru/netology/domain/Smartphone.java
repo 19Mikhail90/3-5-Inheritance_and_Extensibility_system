@@ -1,17 +1,26 @@
 package ru.netology.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Objects;
 
-@NoArgsConstructor
-@Data
-@AllArgsConstructor
-
 public class Smartphone extends Product {
+
     private String manufacturer;
+
+    public Smartphone() {
+    }
+
+    public Smartphone(int id, String name, int price, String manufacturer) {
+        super(id, name, price);
+        this.manufacturer = manufacturer;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -32,10 +41,5 @@ public class Smartphone extends Product {
         return "Smartphone{" +
                 "manufacturer='" + manufacturer + '\'' +
                 '}';
-    }
-
-    public Smartphone(String manufacturer, String title, int id) {
-        super(id, title);
-        this.manufacturer = manufacturer;
     }
 }
